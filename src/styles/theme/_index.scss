@@ -1,0 +1,26 @@
+@use '../abstracts' as *;
+
+:root {
+  @each $name, $value in $colors {
+    --color-#{$name}: #{$value};
+  }
+
+  --font-base: #{$font-base};
+  --font-phone: #{$font-phone};
+  --radius-control: #{$radius-control};
+  --radius-card: #{$radius-card};
+  --focus-ring: 2px solid var(--color-accent);
+
+  // відступи між секціями: 320 → 744/1260 (з Figma)
+  --section-gap: 96px;
+  --section-gap-tight: 64px;
+  --heading-gap: 48px;
+  --block-gap: 40px;
+
+  @include mq(md) {
+    --section-gap: 120px;
+    --section-gap-tight: 120px;
+    --heading-gap: 56px;
+    --block-gap: 56px;
+  }
+}

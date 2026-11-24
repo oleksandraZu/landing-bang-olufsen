@@ -1,0 +1,28 @@
+// Дизайн-токени з Figma (сторінка "v2 B&O"): фрейми B&O 320/744/1260, Buttons & inputs, Menu, Header Hovers.
+// Докладна специфікація — docs/figma-spec.md
+
+$grid-max-width: 1260px;
+$colors: (
+  'text': #1b2129,
+  'bg': #fff,
+  'surface': #f9f9f9,
+  // фон карток, полів, меню
+  'timeless-bg': #fcfaef,
+  // секція "Timeless, for 50 years and counting"
+  'accent': #f98921,
+  // кнопка default
+  'btn-hover': #1b2129,
+  'btn-pressed': #010810,
+  'placeholder': #7e7e83,
+  'field-hover-border': #dbdbdb,
+  'contact-value': #191919,
+  'contact-label': #9393a3,
+  'icon': #292929,
+  // немає в макеті — стан :user-invalid
+  'invalid': #d93025,
+);
+$font-base: ('Manrope', sans-serif);
+$font-phone: ('Inter', sans-serif); // лише номер телефону при hover у шапці
+
+$radius-control: 8px; // кнопки, поля
+$radius-card: 4px; // картки, зображення

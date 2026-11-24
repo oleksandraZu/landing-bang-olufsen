@@ -1,0 +1,6 @@
+@use 'sass:map';
+@use 'tokens' as t;
+
+@function space($name) {
+  @return map.get(t.$spacing, $name);
+}

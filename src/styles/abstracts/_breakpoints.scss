@@ -1,0 +1,18 @@
+@use 'sass:map';
+
+// Брейкпоінти = ширини фреймів макета (320 — базова, mobile first)
+$breakpoints: (
+  md: 744px,
+  lg: 1260px,
+);
+
+// mobile first: лише min-width
+@mixin mq($bp) {
+  @if not map.has-key($breakpoints, $bp) {
+    @error 'Невідомий брейкпоінт `#{$bp}`. Доступні: #{map.keys($breakpoints)}';
+  }
+
+  @media (min-width: map.get($breakpoints, $bp)) {
+    @content;
+  }
+}
