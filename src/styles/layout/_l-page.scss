@@ -1,0 +1,17 @@
+// Повноширинний елемент поза сіткою (hero, банер, фон секції)
+.l-full {
+  width: 100%;
+}
+
+// Вертикальний ритм між секціями (значення — у theme)
+.l-section {
+  margin-top: var(--section-gap);
+}
+
+.l-section--tight {
+  margin-top: var(--section-gap-tight);
+}
+
+.l-section--last {
+  margin-bottom: var(--section-gap-tight);
+}

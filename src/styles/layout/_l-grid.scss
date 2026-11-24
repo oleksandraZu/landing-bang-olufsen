@@ -1,0 +1,46 @@
+@use '../abstracts' as *;
+
+// Модульна сітка (Grid / Info у Figma):
+// 320: 2 кол. × 130 · gutter 20 · margin 20
+// 744: 6 кол. × 80 · gutter 24 · margin 72   (Info у макеті каже "Gutter 64", але на Grid-фреймі крок колонок 104 = 80 + 24)
+// 1260: 12 кол. × 63 · gutter 24 · margin 120 · max-width 1260
+.l-grid {
+  --grid-columns: 2;
+  --grid-gap: 20px;
+  --grid-margin: 20px;
+
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
+  column-gap: var(--grid-gap);
+  width: 100%;
+  max-width: $grid-max-width;
+  margin-inline: auto;
+  padding-inline: var(--grid-margin);
+
+  @include mq(md) {
+    --grid-columns: 6;
+    --grid-gap: 24px;
+    --grid-margin: 72px;
+  }
+
+  @include mq(lg) {
+    --grid-columns: 12;
+    --grid-margin: 120px;
+  }
+}
+
+// Налагодження: підсвічує колонки для звірки з макетом
+.l-grid--debug {
+  --col: calc(
+    (100% - var(--grid-margin) * 2 - var(--grid-gap) * (var(--grid-columns) - 1)) /
+      var(--grid-columns)
+  );
+
+  background: repeating-linear-gradient(
+    to right,
+    transparent 0,
+    transparent var(--grid-margin),
+    rgb(255 0 0 / 15%) var(--grid-margin),
+    rgb(255 0 0 / 15%) calc(var(--grid-margin) + var(--col))
+  );
+}

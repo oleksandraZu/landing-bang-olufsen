@@ -1,0 +1,6 @@
+// Область шапки: поверх hero, прозора (Header у Figma)
+.l-header {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 20;
+}
