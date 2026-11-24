@@ -1,0 +1,61 @@
+@use '../abstracts' as *;
+
+html {
+  font-family: var(--font-base);
+  font-size: 16px;
+  line-height: 1.4;
+  letter-spacing: 0.15px;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+// h1 hero: 36 / 48 / 56, line-height 1
+h1 {
+  font-size: 36px;
+  line-height: 1;
+
+  @include mq(md) {
+    font-size: 48px;
+  }
+
+  @include mq(lg) {
+    font-size: 56px;
+  }
+}
+
+// h2 секцій: 32/32 · 40/40 · 48/48
+h2 {
+  font-size: 32px;
+  line-height: 32px;
+
+  @include mq(md) {
+    font-size: 40px;
+    line-height: 40px;
+  }
+
+  @include mq(lg) {
+    font-size: 48px;
+    line-height: 48px;
+  }
+}
+
+// h3: назви товарів/категорій
+h3 {
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: 2px;
+}
