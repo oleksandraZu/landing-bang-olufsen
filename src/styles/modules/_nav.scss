@@ -1,0 +1,92 @@
+@use '../abstracts' as *;
+
+// Оверлей меню (Menu 320/744/1260): фон #f9f9f9. visibility:hidden прибирає пункти з Tab-порядку
+.nav {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  overflow-y: auto;
+  background: var(--color-surface);
+  visibility: hidden;
+  opacity: 0;
+  transition:
+    opacity 0.2s,
+    visibility 0.2s;
+}
+
+.nav__bar {
+  align-items: center;
+  height: 72px;
+
+  @include mq(md) {
+    height: 96px;
+  }
+}
+
+.nav__logo {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  justify-self: start;
+}
+
+.nav__close {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  justify-self: end;
+  color: var(--color-icon);
+  cursor: pointer;
+}
+
+.header__toggle:focus-visible ~ .nav .nav__close {
+  outline: var(--focus-ring);
+  outline-offset: 4px;
+}
+
+// Пункти: Manrope Bold 22/22, крок 54px, hover = підкреслення 1px
+.nav__body {
+  grid-column: 1 / -1;
+  padding-top: 32px;
+
+  @include mq(md) {
+    grid-column: 1 / span 4;
+    padding-top: 56px;
+  }
+
+  @include mq(lg) {
+    grid-column: 1 / span 4;
+  }
+}
+
+.nav__list {
+  display: grid;
+  gap: 32px;
+}
+
+.nav__link {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 22px;
+  letter-spacing: 0;
+  text-underline-offset: 4px;
+
+  &:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+  }
+}
+
+// Телефон + "call to order": 16px Bold, ls 2px, uppercase
+.nav__contacts {
+  display: grid;
+  gap: 16px;
+  justify-items: start;
+  margin-top: 48px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.nav__call {
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--color-text);
+}

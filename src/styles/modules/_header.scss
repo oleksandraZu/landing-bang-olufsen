@@ -1,0 +1,78 @@
+@use '../abstracts' as *;
+
+// Шапка (розміщення поверх hero — .l-header). Меню без JS: checkbox.header__toggle + label.header__burger
+.header {
+  color: var(--color-icon);
+}
+
+.header__inner {
+  align-items: center;
+  height: 72px;
+
+  @include mq(md) {
+    height: 96px;
+  }
+}
+
+.header__logo {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  justify-self: start;
+}
+
+.header__actions {
+  display: flex;
+  grid-column: 1 / -1;
+  grid-row: 1;
+  gap: 24px;
+  align-items: center;
+  justify-self: end;
+
+  @include mq(md) {
+    gap: 32px;
+  }
+}
+
+.header__phone {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+// Номер при hover/focus (Header Hovers): Inter Bold 12 / 16, ls 2px, uppercase
+.header__phone-number {
+  display: none;
+  color: var(--color-text);
+  font-family: var(--font-phone);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.header__phone:hover .header__phone-number,
+.header__phone:focus-visible .header__phone-number {
+  display: block;
+}
+
+.header__burger {
+  display: block;
+  cursor: pointer;
+}
+
+.header__toggle:focus-visible ~ .header__inner .header__burger {
+  outline: var(--focus-ring);
+  outline-offset: 4px;
+}
+
+.header__toggle:checked ~ .nav {
+  visibility: visible;
+  opacity: 1;
+}
+
+// Бургер у шапці ховається під оверлеєм, закриває меню label у .nav
+.header__toggle:checked ~ .header__inner .header__actions {
+  visibility: hidden;
+}
