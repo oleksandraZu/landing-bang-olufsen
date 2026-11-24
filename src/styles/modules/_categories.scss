@@ -1,0 +1,24 @@
+@use '../abstracts' as *;
+
+// Секція "Sound. Vision. It's your pick."
+.categories {
+  row-gap: var(--block-gap);
+}
+
+.categories__title {
+  grid-column: 1 / -1;
+  margin-bottom: calc(var(--heading-gap) - var(--block-gap));
+}
+
+.categories__item {
+  grid-column: 1 / -1;
+}
+
+// "View all": на всю ширину (2 / 6 колонок), 4 з 12 на десктопі
+.categories__button {
+  grid-column: 1 / -1;
+
+  @include mq(lg) {
+    grid-column: span 4;
+  }
+}

@@ -1,0 +1,31 @@
+@use '../abstracts' as *;
+
+// Рядок категорії: два зображення (1+1 з 2 · 3+3 з 6 · 6+6 з 12), підпис під ними
+.category {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: var(--grid-gap);
+}
+
+.category__media {
+  aspect-ratio: 1;
+  border-radius: var(--radius-card);
+
+  @include mq(md) {
+    aspect-ratio: 288 / 184;
+    border-radius: 0;
+  }
+
+  @include mq(lg) {
+    aspect-ratio: 498 / 324;
+  }
+}
+
+.category__title {
+  grid-column: 1 / -1;
+  margin: 16px 0 0;
+
+  @include mq(md) {
+    font-size: 24px;
+  }
+}

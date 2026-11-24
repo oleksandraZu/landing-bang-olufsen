@@ -1,0 +1,18 @@
+@use '../abstracts' as *;
+
+// Нижній банер (Image logic): висота 200 / 400 / 460, FILL WIDTH; кадрування — у --pos-*
+.banner {
+  height: 200px;
+
+  @include mq(md) {
+    height: 400px;
+  }
+
+  @include mq(lg) {
+    height: 460px;
+  }
+}
+
+.banner__media {
+  height: 100%;
+}

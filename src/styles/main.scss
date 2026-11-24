@@ -1,0 +1,6 @@
+// SMACSS: порядок каскаду — abstracts → base → layout → modules → state → theme
+@use 'theme';
+@use 'base';
+@use 'layout';
+@use 'modules';
+@use 'state'; // state після modules, щоб is-* перемагали

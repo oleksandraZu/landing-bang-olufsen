@@ -1,0 +1,22 @@
+// Картка товару: картинка (квадрат, r=4) → 24 → назва → 8 → опис → 12 → ціна
+.product-card {
+  display: block;
+}
+
+.product-card__media {
+  aspect-ratio: 1;
+  border-radius: var(--radius-card);
+}
+
+.product-card__title {
+  margin: 24px 0 0;
+}
+
+.product-card__text {
+  margin: 8px 0 0;
+}
+
+.product-card__price {
+  margin: 12px 0 0;
+  font-weight: 700;
+}

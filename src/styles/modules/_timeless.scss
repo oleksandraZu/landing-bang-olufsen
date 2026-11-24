@@ -1,0 +1,37 @@
+@use '../abstracts' as *;
+
+// Секція з фоном #fcfaef: висота 392 / 416 / 350 (відступи 48 / 120 / 120)
+.timeless {
+  padding-block: 48px;
+  background: var(--color-timeless-bg);
+
+  @include mq(md) {
+    padding-block: 120px;
+  }
+}
+
+.timeless__title {
+  grid-column: 1 / -1;
+
+  @include mq(md) {
+    grid-column: 1 / span 3;
+  }
+
+  @include mq(lg) {
+    grid-column: 1 / span 6;
+  }
+}
+
+.timeless__text {
+  grid-column: 1 / -1;
+  margin: 24px 0 0;
+
+  @include mq(md) {
+    grid-column: 4 / span 3;
+    margin-top: 0;
+  }
+
+  @include mq(lg) {
+    grid-column: 8 / span 5;
+  }
+}

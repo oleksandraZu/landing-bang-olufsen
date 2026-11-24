@@ -1,0 +1,54 @@
+@use '../abstracts' as *;
+
+// "Contact us": 1260 — форма 6 кол. + контакти 5 кол. (з 8-ї); 744 — форма на 6 кол., контакти під нею на 4; 320 — все в стовпчик
+.contacts__title {
+  grid-column: 1 / -1;
+  margin-bottom: var(--heading-gap);
+}
+
+.contacts__form {
+  display: grid;
+  grid-column: 1 / -1;
+  gap: 16px;
+
+  @include mq(lg) {
+    grid-column: 1 / span 6;
+  }
+}
+
+.contacts__submit {
+  margin-top: 16px; // 16 + gap 16 = 32 від textarea
+}
+
+.contacts__info {
+  grid-column: 1 / -1;
+  margin-top: 48px;
+
+  @include mq(md) {
+    grid-column: 1 / span 4;
+    margin-top: 80px;
+  }
+
+  @include mq(lg) {
+    grid-column: 8 / span 5;
+    grid-row: 2;
+    margin-top: 0;
+  }
+}
+
+.contacts__list {
+  display: grid;
+  gap: 24px;
+  margin: 0;
+}
+
+.contacts__label {
+  color: var(--color-contact-label);
+  font-size: 14px;
+}
+
+.contacts__value {
+  margin: 8px 0 0;
+  color: var(--color-contact-value);
+  font-style: normal;
+}
