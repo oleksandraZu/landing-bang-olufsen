@@ -1,0 +1,43 @@
+section#contacts.l-section.l-section--tight.l-section--last
+  .l-grid
+    h2.section-title.contacts__title Contact us
+    form.contacts__form(action="#" method="post")
+      .field
+        label.is-visually-hidden(for="name") Name
+        input#name.field__control(
+          type="text"
+          name="name"
+          autocomplete="name"
+          placeholder="Name"
+          required
+        )
+      .field
+        label.is-visually-hidden(for="email") Email
+        input#email.field__control(
+          type="email"
+          name="email"
+          autocomplete="email"
+          placeholder="Email"
+          required
+        )
+      .field
+        label.is-visually-hidden(for="message") Message
+        textarea#message.field__control.field__control--textarea(
+          name="message"
+          autocomplete="off"
+          placeholder="Message"
+          required
+        )
+      button.button.contacts__submit(type="submit") Send
+    dl.contacts__info.contacts__list
+      each item in contacts
+        div
+          dt.contacts__label= item.label
+          dd.contacts__value
+            if item.href
+              a(href=item.href)= item.value
+            else
+              each line, i in item.lines
+                if i
+                  br
+                = line

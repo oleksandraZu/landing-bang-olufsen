@@ -1,0 +1,12 @@
+section#recommended.l-section.l-section--tight
+  .recommended.l-grid
+    h2.section-title.recommended__title Recommended
+    each product in products
+      article.product-card.recommended__item
+        +media(product.image.name, product.alt, {
+          crop: product.image.crop,
+          sizes: "(min-width: 1260px) 324px, (min-width: 744px) 600px, 280px",
+        }).product-card__media
+        h3.product-card__title= product.title
+        p.product-card__text= product.text
+        p.product-card__price= product.price

@@ -1,0 +1,55 @@
+//- Кадроване зображення: <picture> AVIF → WebP → JPEG, srcset + sizes, width/height проти зсуву макета.
+//- Файли генерує `npm run images` у src/assets/images/<name>-<width>.<ext>
+//- opts:
+//-   set       — "card" (400/800/1200) або "wide" (480/960/1920, hero і банер)
+//-   sizes, width, height — для srcset і запобігання CLS
+//-   sm        — інше зображення для < 744px (art direction через <source media>)
+//-   crop      — позиція картинки в слоті у % для sm / md / lg: { l, t, w, h }
+//-   pos       — object-position для sm / md / lg (кадрування за Image logic)
+//-   priority  — true для hero (LCP): fetchpriority="high" замість loading="lazy"
+mixin media(name, alt, opts = {})
+  - const o = Object.assign({ set: "card", sizes: "100vw", width: 1200, height: 1200, sm: null, crop: {}, pos: {}, priority: false }, opts)
+  - const widths = o.set === "wide" ? [480, 960, 1920] : [400, 800, 1200]
+  - const base = "/src/assets/images/"
+  - const srcset = (file, ext) => widths.map((w) => `${base}${file}-${w}.${ext} ${w}w`).join(", ")
+  - const largest = widths[widths.length - 1]
+  -
+    const vars = {}
+    for (const bp of ["sm", "md", "lg"]) {
+      const c = o.crop[bp]
+      if (c) {
+        vars[`--l-${bp}`] = `${c.l}%`
+        vars[`--t-${bp}`] = `${c.t}%`
+        vars[`--w-${bp}`] = `${c.w}%`
+        vars[`--h-${bp}`] = `${c.h}%`
+      }
+      if (o.pos[bp]) vars[`--pos-${bp}`] = o.pos[bp]
+    }
+  .media(style=Object.keys(vars).length ? vars : undefined)&attributes(attributes)
+    picture.media__picture
+      if o.sm
+        source(
+          type="image/avif"
+          media="(max-width: 743px)"
+          srcset=srcset(o.sm, "avif")
+          sizes=o.sizes
+        )
+        source(
+          type="image/webp"
+          media="(max-width: 743px)"
+          srcset=srcset(o.sm, "webp")
+          sizes=o.sizes
+        )
+      source(type="image/avif" srcset=srcset(name, "avif") sizes=o.sizes)
+      source(type="image/webp" srcset=srcset(name, "webp") sizes=o.sizes)
+      img.media__img(
+        src=`${base}${name}-${largest}.jpg`
+        srcset=srcset(name, "jpg")
+        sizes=o.sizes
+        alt=alt
+        width=o.width
+        height=o.height
+        decoding="async"
+        loading=o.priority ? undefined : "lazy"
+        fetchpriority=o.priority ? "high" : undefined
+      )

@@ -1,0 +1,31 @@
+include logo
+
+//- Меню без JS: checkbox + label, стан :checked ~ .nav. Перший у DOM — checkbox (фокус із клавіатури)
+header.header.l-header
+  input#menu-toggle.header__toggle.is-visually-hidden(type="checkbox" aria-label="Menu")
+  .header__inner.l-grid
+    a.header__logo(href="#")
+      +logo
+    .header__actions
+      a.header__phone(href=site.phoneHref aria-label=`Call ${site.phone}`)
+        span.header__phone-number(aria-hidden="true")= site.phone
+        +icon("phone")
+      label.header__burger(for="menu-toggle")
+        span.is-visually-hidden Open menu
+        +icon("burger")
+  nav.nav(aria-label="Main menu")
+    .nav__bar.l-grid
+      a.nav__logo(href="#")
+        +logo
+      label.nav__close(for="menu-toggle")
+        span.is-visually-hidden Close menu
+        +icon("close")
+    .l-grid
+      .nav__body
+        ul.nav__list
+          each item in navItems
+            li
+              a.nav__link(href=item.href)= item.label
+        .nav__contacts
+          a(href=site.phoneHref)= site.phone
+          a.nav__call(href=site.phoneHref) call to order

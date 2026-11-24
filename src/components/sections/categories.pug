@@ -1,0 +1,16 @@
+section#categories.l-section
+  .categories.l-grid
+    h2.section-title.categories__title
+      | Sound. Vision.
+      br
+      | It’s your pick.
+    each category in categories
+      article.category.categories__item
+        each image in category.images
+          +media(image.name, "", {
+            sm: image.sm,
+            crop: image.crop,
+            sizes: "(min-width: 1260px) 498px, (min-width: 744px) 288px, 130px",
+          }).category__media
+        h3.category__title= category.title
+    +button("View all", { href: "#categories" }).categories__button

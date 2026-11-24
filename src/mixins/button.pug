@@ -1,0 +1,7 @@
+//- Кнопка: посилання (opts.href) або <button> (opts.type). Один блок для всіх кнопок макета.
+//-   +button("View all", { href: "#categories" })(class="categories__button")
+mixin button(label, opts = {})
+  if opts.href
+    a.button(href=opts.href)&attributes(attributes)= label
+  else
+    button.button(type=opts.type || "button")&attributes(attributes)= label

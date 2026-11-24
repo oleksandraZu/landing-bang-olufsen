@@ -1,0 +1,14 @@
+//- Hero: FILL HEIGHT на 320/744 (кадр зсунуто), FILL WIDTH на 1260. Зображення без alt-тексту: декоративне
+section.hero
+  +media("hero", "", {
+    set: "wide",
+    width: 1920,
+    height: 1080,
+    priority: true,
+    pos: { sm: "44% 50%", md: "43% 50%", lg: "0% 50%" },
+  }).hero__media
+  .hero__content.l-grid
+    h1.hero__title
+      | Your senses.
+      br
+      | Set free.

@@ -1,0 +1,23 @@
+//- Тексти — з макета (v2 B&O): видимі підписи, а не службові назви шарів
+-
+  const site = {
+    phone: '+1 234 5555-55-55',
+    phoneHref: 'tel:+123455555555',
+    email: 'hello@nothing.com',
+    address: ['400 first ave.', 'suite 700', 'Minneapolis, MN 55401'],
+  }
+
+  //- пункти меню (Menu 320 / 744 / 1260)
+  const navItems = [
+    { label: 'Recommended', href: '#recommended' },
+    { label: 'Categories', href: '#categories' },
+    { label: 'About Us', href: '#about' },
+    { label: 'Contact Us', href: '#contacts' },
+  ]
+
+  //- блок контактів: підпис, значення, посилання (tel:/mailto:) або рядки адреси
+  const contacts = [
+    { label: 'Phone', value: site.phone, href: site.phoneHref },
+    { label: 'Email', value: site.email, href: `mailto:${site.email}` },
+    { label: 'Address', lines: site.address },
+  ]

@@ -1,0 +1,29 @@
+header.header
+  input#menu-toggle.header__toggle.is-visually-hidden(type="checkbox" aria-label="Menu")
+  .header__inner.l-grid
+    a.header__logo(href="#" aria-label="Bang & Olufsen — home")
+      img.logo(src="/images/logo.png" width="228" height="24" alt="Bang & Olufsen")
+    .header__actions
+      a.header__phone(href=`tel:${site.phone}` aria-label=`Call ${site.phoneText}`)
+        span.header__phone-number(aria-hidden="true")= site.phoneText
+        +icon("phone")
+      label.header__burger(for="menu-toggle")
+        span.is-visually-hidden Open menu
+        +icon("burger", "header__icon--default")
+        +icon("burger-hover", "header__icon--hover")
+  nav.nav(aria-label="Main menu")
+    .nav__bar.l-grid
+      a.nav__logo(href="#" aria-label="Bang & Olufsen — home")
+        img.logo(src="/images/logo.png" width="228" height="24" alt="Bang & Olufsen")
+      label.nav__close(for="menu-toggle")
+        span.is-visually-hidden Close menu
+        +icon("close")
+    .l-grid
+      .nav__body
+        ul.nav__list
+          each item in navItems
+            li
+              a.nav__link(href=item.href)= item.label
+        .nav__contacts
+          a(href=`tel:${site.phone}`)= site.phoneText
+          a.nav__call(href=`tel:${site.phone}`) call to order

@@ -1,0 +1,41 @@
+//- Тексти — з макета (v2 B&O). Meta-description у макеті відсутній (SEO) — написаний окремо.
+-
+  const site = {
+    lang: 'en',
+    title: 'Bang & Olufsen — Your senses. Set free.',
+    description: 'Bang & Olufsen speakers, headphones and soundbars. Sound. Vision. It’s your pick.',
+    phone: '+123455555555',
+    phoneText: '+1 234 5555-55-55',
+    email: 'hello@nothing.com'
+  }
+  const navItems = [
+    { label: 'Recommended', href: '#recommended' },
+    { label: 'Categories', href: '#categories' },
+    { label: 'About Us', href: '#about' },
+    { label: 'Contact Us', href: '#contacts' }
+  ]
+  //- image.default — кадр 744/1260, image.sm — кадр 320 (art direction)
+  const products = [
+    { title: 'BEOSOUND A5', price: '$ 1299.00', image: { default: 'product-a5', sm: 'product-a5-sm' }, alt: 'Beosound A5 speaker',
+      text: 'Huge sound anywhere – in the home or outdoors. Beosound A5 is a Wi-Fi and Bluetooth speaker with long-lasting battery and wireless charging built in.' },
+    { title: 'BEOPLAY HX', price: '$ 499.00', image: { default: 'product-hx', sm: 'product-hx-sm' }, alt: 'Beoplay HX headphones',
+      text: 'Wireless noise-cancelling headphones. Listen in comfort whether you’re on a call, working from home or taking a moment for yourself.' },
+    { title: 'BEOSOUND THEATRE', price: '$ 3199.00', image: { default: 'product-theatre', sm: 'product-theatre-sm' }, alt: 'Beosound Theatre soundbar',
+      text: 'Four patent-pending acoustic innovations in one sleek soundbar envelop you in sound from every angle. Made to fit any TV, and last for generations.' }
+  ]
+  const categories = [
+    { title: 'Portable speakers', images: [
+      { default: 'portable-1', sm: 'portable-1-sm' }, { default: 'portable-2', sm: 'portable-2-sm' }
+    ] },
+    { title: 'Earphones', images: [
+      { default: 'earphones-1', sm: 'earphones-1-sm' }, { default: 'earphones-2', sm: 'earphones-2-sm' }
+    ] },
+    { title: 'Smart Home', images: [
+      { default: 'smart-home-1', sm: 'smart-home-1-sm' }, { default: 'smart-home-2', sm: 'smart-home-2-sm' }
+    ] }
+  ]
+  const contacts = [
+    { label: 'Phone', value: site.phoneText, href: `tel:${site.phone}` },
+    { label: 'Email', value: site.email, href: `mailto:${site.email}` },
+    { label: 'Address', lines: ['400 first ave.', 'suite 700', 'Minneapolis, MN 55401'] }
+  ]

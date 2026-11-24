@@ -1,0 +1,97 @@
+//- Зображення: name — файл у images-src (без розширення); sm — окремий файл для < 744px (art direction).
+//- crop — позиція картинки в слоті у % (Figma, Dev Mode) для sm / md / lg; без crop — object-fit: cover.
+-
+  const products = [
+    {
+      title: 'BEOSOUND A5',
+      price: '$ 1299.00',
+      alt: 'Beosound A5 portable speaker',
+      text: 'Huge sound anywhere – in the home or outdoors. Beosound A5 is a Wi-Fi and Bluetooth speaker with long-lasting battery and wireless charging built in.',
+      image: { name: 'product-a5', crop: { md: { l: -0.89, t: -5.95, w: 106, h: 106 } } },
+    },
+    {
+      title: 'BEOPLAY HX',
+      price: '$ 499.00',
+      alt: 'Beoplay HX wireless headphones',
+      text: 'Wireless noise-cancelling headphones. Listen in comfort whether you’re on a call, working from home or taking a moment for yourself.',
+      image: {
+        name: 'product-hx',
+        crop: {
+          sm: { l: 7.61, t: 6.64, w: 84.79, h: 84.79 },
+          md: { l: 10.98, t: 11.23, w: 75.43, h: 75.43 },
+        },
+      },
+    },
+    {
+      title: 'BEOSOUND THEATRE',
+      price: '$ 3199.00',
+      alt: 'Beosound Theatre soundbar',
+      text: 'Four patent-pending acoustic innovations in one sleek soundbar envelop you in sound from every angle. Made to fit any TV, and last for generations.',
+      image: { name: 'product-theatre' },
+    },
+  ]
+
+  //- кожна категорія — рядок із двох зображень
+  const categories = [
+    {
+      title: 'Portable speakers',
+      images: [
+        {
+          name: 'portable-1',
+          sm: 'portable-1-sm',
+          crop: {
+            md: { l: 14.26, t: -6.2, w: 70.51, h: 110.36 },
+            lg: { l: 14.56, t: -6.2, w: 69.9, h: 110.36 },
+          },
+        },
+        {
+          name: 'portable-2',
+          crop: {
+            md: { l: 21.58, t: 5.59, w: 57.24, h: 89.59 },
+            lg: { l: 21.06, t: 5.59, w: 58.29, h: 89.59 },
+          },
+        },
+      ],
+    },
+    {
+      title: 'Earphones',
+      images: [
+        {
+          name: 'earphones-1',
+          crop: {
+            md: { l: 18.06, t: 0, w: 63.89, h: 100 },
+            lg: { l: 17.47, t: 0, w: 65.06, h: 100 },
+          },
+        },
+        {
+          name: 'earphones-2',
+          crop: {
+            sm: { l: 3.08, t: 0, w: 100, h: 100 },
+            md: { l: 18.06, t: 0, w: 63.89, h: 100 },
+            lg: { l: 17.47, t: 0, w: 65.06, h: 100 },
+          },
+        },
+      ],
+    },
+    {
+      title: 'Smart Home',
+      images: [
+        {
+          name: 'smart-home-1',
+          crop: {
+            sm: { l: -0.77, t: 3.85, w: 100, h: 100 },
+            md: { l: 22.44, t: 8.5, w: 54.93, h: 85.97 },
+            lg: { l: 22.68, t: 8.5, w: 54.45, h: 85.97 },
+          },
+        },
+        {
+          name: 'smart-home-2',
+          sm: 'smart-home-2-sm',
+          crop: {
+            md: { l: 9.81, t: -11.92, w: 79.12, h: 123.85 },
+            lg: { l: 9.08, t: -11.92, w: 80.57, h: 123.85 },
+          },
+        },
+      ],
+    },
+  ]

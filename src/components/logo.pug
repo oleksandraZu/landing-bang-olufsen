@@ -1,0 +1,12 @@
+//- Логотип: у Figma це растр, вирізаний із більшого зображення, тому кадрується через .logo__img
+mixin logo
+  .logo
+    img.logo__img(
+      src="/src/assets/images/logo-720.png"
+      srcset="/src/assets/images/logo-360.png 360w, /src/assets/images/logo-720.png 720w"
+      sizes="(min-width: 744px) 357px, 238px"
+      alt="Bang & Olufsen"
+      width="357"
+      height="111"
+      decoding="async"
+    )

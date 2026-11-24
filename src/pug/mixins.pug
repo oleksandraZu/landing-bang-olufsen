@@ -1,0 +1,28 @@
+//- Іконка зі спрайту: колір через currentColor
+mixin icon(name, cls)
+  svg.icon(class=cls aria-hidden="true" focusable="false")
+    use(href=`#icon-${name}`)
+
+//- <picture>: AVIF/WebP/fallback + art direction (img.sm для < 744px). Файли: /images/<name>-<w>.(avif|webp|jpg)
+//- eager=true для hero (LCP): fetchpriority=high, без lazy
+mixin picture(img, alt, width, height, cls, sizes, eager)
+  - const widths = [480, 960, 1920]
+  - const set = (name, ext) => widths.map((w) => `/images/${name}-${w}.${ext} ${w}w`).join(", ")
+  picture
+    if img.sm
+      source(type="image/avif" media="(max-width: 743px)" srcset=set(img.sm, "avif") sizes=sizes)
+      source(type="image/webp" media="(max-width: 743px)" srcset=set(img.sm, "webp") sizes=sizes)
+    source(type="image/avif" srcset=set(img.default, "avif") sizes=sizes)
+    source(type="image/webp" srcset=set(img.default, "webp") sizes=sizes)
+    img(
+      class=cls
+      src=`/images/${img.default}-960.jpg`
+      srcset=set(img.default, "jpg")
+      sizes=sizes
+      alt=alt
+      width=width
+      height=height
+      loading=eager ? "eager" : "lazy"
+      fetchpriority=eager ? "high" : null
+      decoding="async"
+    )
