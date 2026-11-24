@@ -1,0 +1,29 @@
+@use '../abstracts' as *;
+
+// Primary button: default #f98921 / hover #1b2129 / pressed #010810
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 56px;
+  padding: 0 48px;
+  border: 0;
+  border-radius: var(--radius-control);
+  background: var(--color-accent);
+  color: #fff;
+  font-weight: 700;
+  line-height: 27px;
+  letter-spacing: 0;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background: var(--color-btn-hover);
+  }
+
+  &:active {
+    background: var(--color-btn-pressed);
+  }
+}

@@ -1,0 +1,41 @@
+@use '../abstracts' as *;
+
+// Кадроване зображення (Image logic у Figma). Позицію й розмір картинки всередині слота задають
+// custom properties з Pug (--l-*, --t-*, --w-*, --h-* у %, --pos-* для object-position) окремо
+// для sm / md / lg; не задані значення успадковуються від меншого брейкпоінта.
+.media {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-surface);
+}
+
+.media__picture {
+  display: block;
+}
+
+.media__img {
+  position: absolute;
+  top: var(--t-sm, 0%);
+  left: var(--l-sm, 0%);
+  width: var(--w-sm, 100%);
+  max-width: none;
+  height: var(--h-sm, 100%);
+  object-fit: cover;
+  object-position: var(--pos-sm, 50% 50%);
+
+  @include mq(md) {
+    top: var(--t-md, var(--t-sm, 0%));
+    left: var(--l-md, var(--l-sm, 0%));
+    width: var(--w-md, var(--w-sm, 100%));
+    height: var(--h-md, var(--h-sm, 100%));
+    object-position: var(--pos-md, var(--pos-sm, 50% 50%));
+  }
+
+  @include mq(lg) {
+    top: var(--t-lg, var(--t-md, var(--t-sm, 0%)));
+    left: var(--l-lg, var(--l-md, var(--l-sm, 0%)));
+    width: var(--w-lg, var(--w-md, var(--w-sm, 100%)));
+    height: var(--h-lg, var(--h-md, var(--h-sm, 100%)));
+    object-position: var(--pos-lg, var(--pos-md, var(--pos-sm, 50% 50%)));
+  }
+}

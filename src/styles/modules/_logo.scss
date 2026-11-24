@@ -1,0 +1,24 @@
+@use '../abstracts' as *;
+
+// Логотип у Figma — растр, вирізаний із більшого зображення: 152×16 (320) → 228×24 (744+)
+.logo {
+  position: relative;
+  display: block;
+  width: 152px;
+  height: 16px;
+  overflow: hidden;
+
+  @include mq(md) {
+    width: 228px;
+    height: 24px;
+  }
+}
+
+.logo__img {
+  position: absolute;
+  top: -372.73%;
+  left: 0.51%;
+  width: 156.7%;
+  max-width: none;
+  height: 463.64%;
+}

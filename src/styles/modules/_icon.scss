@@ -1,0 +1,30 @@
+@use '../abstracts' as *;
+
+// Іконки 24 (320) → 32 (744+). Колір — currentColor
+.icon {
+  display: block;
+  width: 24px;
+  height: 24px;
+  color: var(--color-icon);
+
+  @include mq(md) {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+// Бургер: hover = скорочені верхня й нижня лінії (Icon-Burger-menu-hover з Figma)
+.icon__line {
+  transform-box: fill-box;
+  transform-origin: left center;
+
+  @include transition(transform 0.2s);
+}
+
+.icon--burger:hover .icon__line--top {
+  transform: scaleX(0.72);
+}
+
+.icon--burger:hover .icon__line--bottom {
+  transform: scaleX(0.5);
+}

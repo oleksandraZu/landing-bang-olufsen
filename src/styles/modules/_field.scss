@@ -1,0 +1,43 @@
+@use '../abstracts' as *;
+
+// Поле: default / hover (1px #dbdbdb) / focus (2px #f98921) / filled (текст #1b2129)
+.field {
+  display: block;
+}
+
+.field__control {
+  display: block;
+  width: 100%;
+  min-height: 48px;
+  padding: 14px 16px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-control);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-size: 14px;
+  transition: border-color 0.2s;
+
+  &::placeholder {
+    color: var(--color-placeholder);
+    opacity: 1;
+  }
+
+  &:hover {
+    border-color: var(--color-field-hover-border);
+  }
+
+  &:focus-visible {
+    padding: 13px 15px; // 2px рамка без зсуву тексту
+    border: 2px solid var(--color-accent);
+    outline: 0;
+  }
+
+  &:user-invalid {
+    border-color: var(--color-invalid);
+  }
+}
+
+.field__control--textarea {
+  min-height: 148px;
+  resize: vertical;
+}
