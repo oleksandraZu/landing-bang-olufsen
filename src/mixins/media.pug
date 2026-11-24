@@ -16,14 +16,14 @@ mixin media(name, alt, opts = {})
   -
     const vars = {}
     for (const bp of ["sm", "md", "lg"]) {
-      const c = o.crop[bp]
+      const c = o.crop?.[bp]
       if (c) {
         vars[`--l-${bp}`] = `${c.l}%`
         vars[`--t-${bp}`] = `${c.t}%`
         vars[`--w-${bp}`] = `${c.w}%`
         vars[`--h-${bp}`] = `${c.h}%`
       }
-      if (o.pos[bp]) vars[`--pos-${bp}`] = o.pos[bp]
+      if (o.pos?.[bp]) vars[`--pos-${bp}`] = o.pos?.[bp]
     }
   .media(style=Object.keys(vars).length ? vars : undefined)&attributes(attributes)
     picture.media__picture

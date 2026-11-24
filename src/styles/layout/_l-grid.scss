@@ -32,6 +32,7 @@
 // Налагодження: підсвічує колонки для звірки з макетом
 .l-grid--debug {
   --col: calc(
+    /* stylelint-disable-next-line scss/operator-no-newline-after */
     (100% - var(--grid-margin) * 2 - var(--grid-gap) * (var(--grid-columns) - 1)) /
       var(--grid-columns)
   );
