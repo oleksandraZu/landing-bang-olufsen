@@ -1,0 +1,27 @@
+{
+  "extends": ["stylelint-config-standard-scss"],
+  "rules": {
+    "selector-class-pattern": [
+      "^(l-|is-|has-)?[a-z][a-z0-9]*(-[a-z0-9]+)*(__[a-z0-9]+(-[a-z0-9]+)*)?(--[a-z0-9]+(-[a-z0-9]+)*)?$",
+      {
+        "resolveNestedSelectors": true,
+        "message": "Клас має відповідати БЕМ: block__element--modifier (префікси SMACSS: l-, is-, has-)"
+      }
+    ],
+    "selector-max-type": 0,
+    "selector-pseudo-class-no-unknown": [true, { "ignorePseudoClasses": ["user-invalid"] }],
+    "max-nesting-depth": [3, { "ignoreAtRules": ["include", "media", "supports", "each"] }],
+    "selector-max-id": 0,
+    "declaration-no-important": true,
+    "media-feature-range-notation": "prefix"
+  },
+  "overrides": [
+    {
+      "files": ["src/styles/base/**/*.scss"],
+      "rules": {
+        "selector-max-type": null,
+        "selector-max-class": [0, { "message": "У base/ не має бути жодного класу (SMACSS)" }]
+      }
+    }
+  ]
+}
