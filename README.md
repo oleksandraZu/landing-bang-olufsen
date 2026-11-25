@@ -87,3 +87,5 @@ src/styles/
 Докладна специфікація макета — `docs/figma-spec.md`.
 
 TODO: скриншоти PerfectPixel (320, 744, 1260), W3C Validator (0 помилок), PageSpeed Insights (Mobile і Desktop).
+
+[Скріншоти перевірок](./screenshot)
